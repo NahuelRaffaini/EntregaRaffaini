@@ -1,0 +1,33 @@
+{% extends 'padre.html' %}
+
+{% block contenidoQueCambia %}
+
+<div style="display: flex; justify-content: space-between;">
+    <!-- Lista de Estudiantes -->
+    <div class="container mt-5" style="width: 45%; margin-left: 20px;">
+        <div class="card p-4">
+            <ul>
+                <a href="/app_arq/crear_proyecto/" class="btn btn-success">Crear Proyecto</a>
+                <h1>Proyectos</h1>
+                <form action="{% url 'filtrar_proyectos' %}" method="get">
+                    <input type="text" name="q" placeholder="Buscar proyectos..." value="{{ request.GET.q }}"> <button type="submit" class="btn btn-outline-primary btn-sm">Buscar</button>
+                </form>
+                {% for proyecto in proyectos %}
+                    <li style="font-size: 20px;">{{ proyecto.nombre }}</li>
+                    <div style="display: flex; column-gap: 5px;">
+                        <form action="{% url 'eliminar_proyecto' proyecto.id %}" method="post"> {% csrf_token %}
+                            <button type="submit" class="btn btn-danger"> Eliminar </button>
+                        </form>
+                        <button class="btn btn-dark">
+                            <a href="{% url 'actualizar_proyecto' proyecto.id %}" style="color: white;">Editar</a>
+                        </button>
+                    </div>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+
+</div>
+
+{% endblock contenidoQueCambia %}

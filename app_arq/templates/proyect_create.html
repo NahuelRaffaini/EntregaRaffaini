@@ -1,0 +1,37 @@
+{% extends 'padre.html' %}
+
+{% block contenidoQueCambia %}
+<h1 class="mb-4">Crea un proyecto</h1>
+<form action="{% url 'crear_proyecto' %}" method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="id_titulo" class="form-label">Titulo:</label>
+        <input type="text" class="form-control" name="titulo" required maxlength="40" id="id_titulo">
+    </div>
+    <div class="mb-3">
+        <label for="id_descripcion" class="form-label">Descripcion:</label>
+        <input type="text" class="form-control" name="descripcion" required maxlength="500" id="id_descripcion">
+    </div>
+    <div class="mb-3">
+        <label for="id_link" class="form-label">Link:</label>
+        <input type="text" class="form-control" name="link" maxlength="256" id="id_link">
+    </div>
+    <div class="mb-3">
+        <label for="id_pdf" class="form-label">PDF:</label>
+        <input type="file" class="form-control" name="pdf" id="id_pdf">
+    </div>
+    <div class="mb-3">
+        <label for="id_foto" class="form-label">Foto:</label>
+        <input type="file" class="form-control" name="foto" required id="id_foto">
+    </div>
+    <div class="mb-3">
+        <label for="id_email" class="form-label">Email:</label>
+        <input type="mail" class="form-control" name="email" required id="id_email">
+    </div>
+    <div class="mb-3">
+        <label for="id_fecha_maxima" class="form-label">Fecha maxima:</label>
+        <input type="date" class="form-control" name="fecha_maxima" required id="id_fecha_maxima">
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
+{% endblock contenidoQueCambia %}

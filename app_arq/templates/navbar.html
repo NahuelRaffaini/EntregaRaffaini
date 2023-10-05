@@ -1,0 +1,19 @@
+<!-- Barra superior -->
+<nav class="navbar navbar-dark bg-primary">
+    <div class="container">
+        <div class="home-button">
+            <a class="navbar-brand" href="{% url 'Inicio' %}">Inicio</a>
+        </div>
+        <a class="navbar-brand" href="{% url 'lista_proyecto' %}">Proyectos</a>
+        <div class="btn-group">
+            {% if user.is_authenticated %}
+            <!-- Si el usuario está autenticado -->
+            <a class="btn btn-danger btn-sm ml-auto" href="{% url 'logout' %}">Cerrar Sesión</a>
+            {% else %}
+            <!-- Si el usuario no está autenticado -->
+            <a class="btn btn-primary btn-sm ml-auto" href="{% url 'login' %}">Iniciar Sesión</a>
+            <a class="btn btn-primary btn-sm ml-auto" href="{% url 'register' %}">Registrarse</a>
+            {% endif %}
+        </div>
+    </div>
+</nav>

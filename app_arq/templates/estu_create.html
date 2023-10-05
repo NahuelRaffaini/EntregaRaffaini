@@ -1,0 +1,11 @@
+{% extends 'padre.html' %}
+
+{% block contenidoQueCambia %}
+<form action="{% url 'CrearEstu' %}" method="post">
+    {% csrf_token %}
+    <p><label for="id_nombre">Nombre:</label> <input type="text" name="nombre" required maxlength="40" id="id_nombre"></p>
+    <p><label for="id_apellido">Apellido:</label> <input type="text" name="apellido" required id="id_apellido"></p>
+    <p><label for="id_email">Email:</label> <input type="email" name="email" id="id_email"></p>
+    <button type="submit">Enviar</button>
+</form>
+{% endblock contenidoQueCambia %}
