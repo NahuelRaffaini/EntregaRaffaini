@@ -1,11 +1,13 @@
 {% extends 'padre.html' %}
 
+{% block title %}Eliminar trabajador{% endblock %}
+
 {% block contenidoQueCambia %}
     
-    <form action="{% url 'EliminarEstu' %}" method="post">
+    <form action="{% url 'eliminar_trabajador' pk=trabajador.pk %}" method="post">
     {% csrf_token %}
 
-        <p>Está seguro que quiere eliminar el curso?</p>
+        <p>Está seguro que quiere eliminar el trabajador?</p>
 
         <button type="submit"> Confirmar </button>
         <button><a href="{% url 'Inicio' %}"> Cancelar </a></button>

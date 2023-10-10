@@ -1,13 +1,18 @@
 {% extends 'padre.html' %}
 
-
+{% block title %}Inicio{% endblock %}
 
 {% block contenidoQueCambia %}
 
 <body>
-    <div style="background-color: #007bff; padding: 10px; text-align: center; width: 100%; margin: 0 auto;">
-        <h1>Bienvenido</h1>
-        <h5>web creada para la tercera pre-entrega del curso de python</h5>
+    <div style="display: flex; justify-content: space-between;">
+        <div class="container mt-5" style="width: 100%; margin: 20px;">
+            <div class="card p-4">
+                    <h1>Bienvenido</h1>
+                    <h5>web creada para la tercera pre-entrega del curso de python</h5>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 

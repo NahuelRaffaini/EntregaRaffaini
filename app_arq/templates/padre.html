@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Landing Page - Start Bootstrap Theme</title>
+        <title>{% block title %}{% endblock %}</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -17,12 +17,20 @@
         <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
     </head>
     <body>
+
         {% include 'navbar.html' %}
+
+        {% if user.is_authenticated %}
+        {% else %}
+            <div class="alert alert-primary" role="alert">
+            Inicia sesion para utilizar la plataforma!
+            </div>
+        {% endif %}
         
         {% block contenidoQueCambia %}
-            
+        
         {% endblock contenidoQueCambia %}
-            
+        
         <!-- Footer-->
         <footer class="footer bg-light">
             <div class="container">

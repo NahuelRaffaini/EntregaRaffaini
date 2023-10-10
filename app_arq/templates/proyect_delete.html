@@ -1,8 +1,10 @@
 {% extends 'padre.html' %}
 
+{% block title %}Eliminar proyecto{% endblock %}
+
 {% block contenidoQueCambia %}
     
-    <form action="{% url 'eliminar_proyecto' %}" method="post">
+    <form action="{% url 'eliminar_proyecto' %} proyecto.id" method="post">
     {% csrf_token %}
 
         <p>Está seguro que quiere eliminar el curso?</p>
